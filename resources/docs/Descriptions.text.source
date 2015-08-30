@@ -1,0 +1,30 @@
+1. General Description of All classes
+
+ 1.1. Class Task @ workersz/worker.py:
+  This class acts as an API that encapsulates different method callbacks that 
+  are automatically called by {WorkerThread}'s run method.
+
+  Each of those method callbacks are called in strategically chosen point
+  in the run method of {WorkerThread} such that the Client of the Class can
+  run his code.
+  
+  Each Task has target, arguments, keyword arguments and 
+  
+  Each Task has a lock that is used by {WorkerThread} to guard against 
+   read/writes to its members
+  
+    1.1.1 Task._target:
+     This is the target function that is to be used by {WorkerThread}'s run
+     method and does the actual job of the task. It's result is passed
+     to Task._on_done
+        
+        
+    1.1.2. Task._on_done:
+        This is called by {WorkerThread} on successful Task._target call with
+        the <result|s>
+    
+ 1.2. Class WorkerThread @ workersz/worker.py:
+    This class is the default Base class for everything in Workersz lib
+    
+    1.2.1 WorkerThread.run:
+        Overrides? Thread.run
