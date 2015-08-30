@@ -1,0 +1,14 @@
+#!/bin/cat
+
+# docs/ ## All documentation belongs to this directory
+
+# info/ ## Additional information that is independent of workers but workers themselves, use.
+
+
+docs/Usage.text.source
+Simple Usage documentation file. This is the manual for the Whole project.
+
+docs/Usage.*.text.source
+Each component of Workersz has a Usage text document.
+
+
