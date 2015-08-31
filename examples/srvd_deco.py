@@ -17,7 +17,7 @@ minimalistic HTTP server using decorator
 
 
               
-wp = WorkerPool( count = 32 )
+wp = WorkerPool( count = 4 )
 # client_data_target = D.worker_pool(
 #       worker_pool = wp
 #   ) ( client_data_target )

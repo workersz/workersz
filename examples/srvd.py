@@ -61,8 +61,10 @@ def signal_handler(signal, frame):
         sys.exit(0)
 
 
+def all_done(p):
+    print p
 
-wp = WorkerPool( count = 32 )
+wp = WorkerPool( count = 32, all_done = all_done )
 signal_handler.wp = wp
 connection_accept.wp = wp
 
