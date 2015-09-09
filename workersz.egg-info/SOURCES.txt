@@ -1,0 +1,11 @@
+setup.py
+workersz/__init__.py
+workersz/decorator.py
+workersz/pool.py
+workersz/scheduler.py
+workersz/sig.py
+workersz/worker.py
+workersz.egg-info/PKG-INFO
+workersz.egg-info/SOURCES.txt
+workersz.egg-info/dependency_links.txt
+workersz.egg-info/top_level.txt
