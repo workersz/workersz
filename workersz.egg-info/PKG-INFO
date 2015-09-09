@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: workersz
+Version: 0.0.1
+Summary: Asynchronous library of workers and pools for python
+Home-page: https://github.com/workersz/workersz
+Author: Dobri Stoilov, Boril Boyanov
+Author-email: workersz@rivadb.com
+License: Apache
+Description: # Asynchronous library of workers and pools for python
+        
+        # Installation
+        
+            1. Check your system for setuputils
+            
+            2. Run setup.py in the directory (it may require root) 
+                python ./setup.py install
+            
+        # Usage
+        
+            Check out resources/docs/Usage.* document files
+        
+Keywords: thread threads multitasking parallel processing asynchronous workers worker pool event driven reusable-threads thread-pool message event loop
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache
