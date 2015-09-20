@@ -72,6 +72,11 @@ class Task(object):
 #        return Lock()
 
 
+class DummyPool(object):
+    def apply( self, f, args, kwargs):
+        return apply(f,args,kwargs)
+
+
 class WorkerThread(Thread):
     """
     impements Thread with event loop
@@ -79,6 +84,7 @@ class WorkerThread(Thread):
     # worker have identity 
     def __init__(  self
                   ,wid 
+                  ,mp = DummyPool() 
                   ,on_worker_done = None 
                   ,on_target_err  = None 
                   ,worker_done_lock = None
@@ -95,6 +101,8 @@ class WorkerThread(Thread):
             on_worker_done( worker )
             on_worker_error( worker, exception )
         """
+        # multiprocessing or not
+        self.mp = mp
         # callbacks
         if on_worker_done is not None:
             self._worker_task_done = on_worker_done
@@ -138,10 +146,12 @@ class WorkerThread(Thread):
             _task = self._task
             try:
                 _task._lock(_task._task_lock)
-                r = _task._target ( # target result
-                             *_task._args
-                            ,**_task._kwargs
+                r = self.mp.apply (
+                            _task._target ,  # target result
+                            _task._args ,
+                            _task._kwargs
                           )
+
                 _task._unlock(_task._task_lock)
                 
                 _task._lock(_task._done_lock)
