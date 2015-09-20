@@ -6,6 +6,11 @@
     
     2. Run setup.py in the directory (it may require root) 
         python ./setup.py install
+        
+# About GIL
+    # GIL is in effect, so multiprocessing.Pool could be used with very basic support for CPU bound tasks
+    # wp = WorkerPool( mp = Pool(4),count=4 ) # with multiprocessing 
+    # wp = WorkerPool( count = 40 ) # without multiprocessing, threaded but with GIL and single process
     
 # Usage
     # Simple, make any target function runnable in worker pool context
