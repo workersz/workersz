@@ -27,7 +27,9 @@ class WorkerPool(object):
                     pass
                 self._all_done = ___pass
             if 'tick' in kwargs:
-                self._tick = kwargs['tick'] 
+                self._tick = kwargs['tick']
+
+         
 
         self._wpol = list([]) # all workers
         self._wbsy = dict({}) # busy
@@ -62,7 +64,10 @@ class WorkerPool(object):
         # pool initialization
  
         for i in xrange(1,self._wcnt+1) :
-            w = WorkerThread(i)
+            if 'mp' in kwargs:
+                w = WorkerThread(i,mp=kwargs['mp'])
+            else:
+                w = WorkerThread(i)
             w._pool = self # back reference
             w._worker_task_done = self.____f
             self._wpol.append(w)

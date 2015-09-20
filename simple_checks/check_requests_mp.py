@@ -5,6 +5,7 @@ import workersz.decorator
 import workersz.sig
 from  threading import Lock
 from time import sleep
+from multiprocessing import Pool
 
 urls = [
  'https://api.github.com/events'
@@ -12,7 +13,6 @@ urls = [
 ,'http://yahoo.com'
 ,'http://mail.ru'
 ,'http://dir.bg'
-,'http://somesome.tld'
 ]
 
 
@@ -30,7 +30,7 @@ def task_err(w,e):
 
 
 kw = {
-    'worker_pool':workersz.pool.WorkerPool( count = 10, all_done = all_done ) 
+    'worker_pool':workersz.pool.WorkerPool(mp=Pool(4), count = 10, all_done = all_done ) 
    ,'task_kw':{ 
        'on_done':task_done 
       ,'on_err':task_err 
